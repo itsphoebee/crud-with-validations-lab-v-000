@@ -17,9 +17,11 @@ class Song < ActiveRecord::Base
   end
 
   def cannot_release_same_song_twice_a_year
-    a = Song.find_by(title: title)
-    if a.release_year == release_year
-      errors.add(:release_year, "cannot release same song twice in a year")
+    if release_year.present?
+      a = Song.find_by(title: title)
+      if a.release_year == release_year
+        errors.add(:release_year, "cannot release same song twice in a year")
+      end
     end
   end
 
