@@ -1,8 +1,15 @@
 <%= form_for @song do |s| %>
-  <%= s.text_field :title, :value => @song.title %>
-  <%= s.text_field :released, :value => @song.released%>
-  <%= s.text_field :release_year, :value => @song.release_year%>
-  <%= s.text_field :artist_name, :value => @song.artist_name %>
-  <%= s.text_field :genre, :value => @song.genre %>
+  <%= s.label :title %>:
+  <%= s.text_field :title, :value => @song.title %><br>
+
+  <%= s.label :released %>:
+  <%= s.text_field :released, :value => @song.released%><br>
+
+  <%= s.text_field :release_year, :value => @song.release_year%><br>
+
+  <%= s.text_field :artist_name, :value => @song.artist_name %><br>
+
+  <%= s.text_field :genre, :value => @song.genre %><br>
+
   <%= s.submit 'Save' %>
 <% end %>
