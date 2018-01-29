@@ -2,7 +2,7 @@ class Song < ActiveRecord::Base
   validates :title, presence: true
   #validates :released, inclusion: {in: %w(true false)}
   validates :artist_name, presence: true
-  validate :must_have_release_year_if_released, :release_year_cannot_be_in_the_future#, :cannot_release_same_song_twice_a_year
+  validate :must_have_release_year_if_released, :release_year_cannot_be_in_the_future, :cannot_release_same_song_twice_a_year
 
   def must_have_release_year_if_released
     if released? && release_year.blank?
@@ -16,7 +16,14 @@ class Song < ActiveRecord::Base
     end
   end
 
-
+  def cannot_release_same_song_twice_a_year
+    if title.present? && release_year.present? && artist_name.present?
+      a = Song.find_by(title: title, release_year: release_year, artist_name: artist_name)
+      if a
+        errors.add(:title, "cannot release same song twice in a year")
+      end
+    end
+  end
 
 
 end
