@@ -1,19 +1,19 @@
 <h1> Create a New Song</h1>
 
 <%= form_for @song do |s| %>
-  <%= s.label :title %>:
+  <%= s.label :title %>:<br>
   <%= s.text_field :title, :value => @song.title %><br>
 
-  <%= s.label :released %>:
+  <%= s.label :released %>:<br>
   <%= s.text_field :released, :value => @song.released%><br>
 
-  <%= s.label :release_year %>:
+  <%= s.label :release_year %>:<br>
   <%= s.text_field :release_year, :value => @song.release_year%><br>
 
-  <%= s.label :artist_name %>:
+  <%= s.label :artist_name %>:<br>
   <%= s.text_field :artist_name, :value => @song.artist_name %><br>
 
-  <%= s.label :genre %>:
+  <%= s.label :genre %>:<br>
   <%= s.text_field :genre, :value => @song.genre %><br>
 
   <%= s.submit 'Save' %>
