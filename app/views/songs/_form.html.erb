@@ -1,5 +1,5 @@
 <%= form_for @song do |s| %>
-  <%= s.text_field :title, @song.title %>
+  <%= s.text_field :title, :value => @song.title %>
   <%= s.text_field :released, @song.released%>
   <%= s.text_field :release_year, @song.release_year%>
   <%= s.text_field :artist_name, @song.artist_name %>
