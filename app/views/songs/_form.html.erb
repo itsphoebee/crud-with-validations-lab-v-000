@@ -10,14 +10,15 @@
   </div>
   <% end %>
 
+  <div class="field<%=' field_with_errors' if @song.errors[:title].any? %>">
   <%= s.label :title %>:<br>
-  <%= s.text_field :title, :value => @song.title %><br>
+  <%= s.text_field :title %><br>
 
   <%= s.label :released %>:<br>
-  <%= s.text_field :released, :value => @song.released%><br>
+  <%= s.text_field :released %><br>
 
   <%= s.label :release_year %>:<br>
-  <%= s.text_field :release_year, :value => @song.release_year%><br>
+  <%= s.text_field :release_year %><br>
 
   <%= s.label :artist_name %>:<br>
   <%= s.text_field :artist_name, :value => @song.artist_name %><br>
