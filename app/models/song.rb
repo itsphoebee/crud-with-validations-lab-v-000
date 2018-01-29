@@ -21,7 +21,8 @@ class Song < ActiveRecord::Base
     if a.release_year == release_year
       errors.add(:release_year, "cannot release same song twice in a year")
     end
-      
   end
-  
+
+  end
+
 end
