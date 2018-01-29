@@ -1,6 +1,5 @@
 class Song < ActiveRecord::Base
   validates :title, presence: true
-  validates :release_year, presence: true, if: :released?
   validates :artist_name, presence: true
   validate :must_have_release_year_if_released, :release_year_cannot_be_in_the_future, :cannot_release_same_song_twice_a_year
 
