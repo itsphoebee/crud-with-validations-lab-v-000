@@ -7,22 +7,5 @@
       <td>Artist: <%= song.artist_name%></td>
     </tr>
   <%end%>
-</tbody>
+  </tbody>
 </table>
-
-+<h1>Songs</h1>
- +
- +<table>
- +<% @songs.each do |i| %>
- +<tbody>
- +<tr>
- +  <td>Title: <%= i.title %></td>
- +  <td><% if i.released == true%>
- +    Release Year: <%= i.release_year %><br>
- +  <% end %></td>
- +  <td>Genre: <%= i.genre %></td>
- +  <td>Artist: <%= i.artist_name %></td>
- +</tr>
- +</tbody>
- +<% end %>
- +</table>
