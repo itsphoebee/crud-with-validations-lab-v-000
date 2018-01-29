@@ -20,6 +20,7 @@ class Song < ActiveRecord::Base
     if title.present? && release_year.present? && artist_name.present?
       a = Song.find_by(title: title, release_year: release_year, artist_name: artist_name)
       if a
+        binding.pry
         errors.add(:title, "cannot release same song twice in a year")
       end
     end
