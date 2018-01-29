@@ -27,6 +27,13 @@ class SongsController < ApplicationController
 
   def update
   end
+
+  def destroy
+    @song = find_song
+    @song.destroy
+    redirect_to songs_path
+  end
+
   private
 
   def find_song
