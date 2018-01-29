@@ -1,5 +1,4 @@
 class SongsController < ApplicationController
-  before_action :find_song, only: [:show, :edit, :update, :destroy]
 
   def index
     @songs = Song.all
@@ -19,12 +18,15 @@ class SongsController < ApplicationController
   end
 
   def show
+    @song = find_song
   end
 
   def edit
+    @song = find_song
   end
 
   def update
+    @song = find_song
     @song.update(song_params)
     if @song.valid?
       redirect_to song_path(@song)
