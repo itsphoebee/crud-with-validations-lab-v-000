@@ -9,11 +9,10 @@ class Song < ActiveRecord::Base
       errors.add(:release_year, "cannot be blank if song was released" )
     end
   end
-  
+
   def release_year_cannot_be_in_the_future
     if released_year.present? && release_year < Date.today
       errors.add(:release_year, "cannot be in the future")
     end
-      
   end
 end
