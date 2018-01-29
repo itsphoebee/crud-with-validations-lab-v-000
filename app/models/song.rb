@@ -13,6 +13,7 @@ class Song < ActiveRecord::Base
   def release_year_cannot_be_in_the_future
     if release_year.present? && release_year > Time.now.year
       errors.add(:release_year, "cannot be in the future")
+      binding.pry
     end
   end
 
@@ -21,7 +22,7 @@ class Song < ActiveRecord::Base
       a = Song.find_by(title: title, release_year: release_year, artist_name: artist_name)
       if !(!a)
         errors.add(:title, "cannot release same song twice in a year")
-        binding.pry
+
       end
     end
   end
