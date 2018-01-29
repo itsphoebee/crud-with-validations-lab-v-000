@@ -2,12 +2,18 @@ class Song < ActiveRecord::Base
   validates :title, presence: true
   #validates :released, inclusion: {in: %w(true false)}
   validates :artist_name, presence: true
-  validate :must_have_release_year_if_released
+  validate :must_have_release_year_if_released, release_year_cannot_be_in_the_future
 
   def must_have_release_year_if_released
-    if released && release_year.blank?
+    if released? && release_year.blank?
       errors.add(:release_year, "cannot be blank if song was released" )
     end
   end
-
+  
+  def release_year_cannot_be_in_the_future
+    if released_year.present? && release_year < Date.today
+      errors.add(:release_year, "cannot be in the future")
+    end
+      
+  end
 end
