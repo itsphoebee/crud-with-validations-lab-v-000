@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
   validate :must_have_release_year_if_released
 
   def must_have_release_year_if_released
-    if released.released && release_year.blank?
+    if released && release_year.blank?
       errors.add(:release_year, "cannot be blank if song was released" )
     end
   end
