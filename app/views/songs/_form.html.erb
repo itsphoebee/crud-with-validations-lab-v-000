@@ -8,8 +8,10 @@
   <%= s.label :release_year %>:
   <%= s.text_field :release_year, :value => @song.release_year%><br>
 
+  <%= s.label :artist_name %>:
   <%= s.text_field :artist_name, :value => @song.artist_name %><br>
 
+  <%= s.label :genre %>:
   <%= s.text_field :genre, :value => @song.genre %><br>
 
   <%= s.submit 'Save' %>
