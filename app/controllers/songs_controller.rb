@@ -18,6 +18,12 @@ class SongsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   def update
     @song = find_song
     @song.update(song_params)
