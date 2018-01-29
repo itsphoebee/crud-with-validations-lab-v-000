@@ -17,12 +17,16 @@ class SongsController < ApplicationController
     end
   end
 
+  def show
+    @song = find_song
+  end
+
   private
 
   def find_song
     Song.find(params[:id])
   end
-  
+
   def song_params
     params.require(:song).permit(:title, :released, :release_year, :artist_name, :genre)
   end
